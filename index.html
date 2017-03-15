@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+<script type="text/javascript">
+  /*提高网页性能。*/
+  /*使用window.requestAnimationFrame()，让读操作和写操作分离，把所有的写操作放到下一次重新渲染。*/
+  function doubleHeight(element) {
+    var currentHeight = element.clientHeight;
+    window.requestAnimationFrame(function () {
+      element.style.height = (currentHeight * 2) + 'px';
+    });
+  }
+  //elements.forEach(doubleHeight);
+
+  /*页面滚动事件（scroll）的监听函数，就很适合用 window.requestAnimationFrame() ，推迟到下一次重新渲染。*/
+  $(window).on('scroll', function() {
+     window.requestAnimationFrame(scrollHandler);
+  });
+
+  /*上面代码中，回调函数 someHeavyComputation 的参数是一个 deadline 对象。
+  deadline对象有一个方法和一个属性：timeRemaining() 和 didTimeout。*/
+  requestIdleCallback(function someHeavyComputation(deadline) {
+  while(deadline.timeRemaining() > 0) {
+    doWorkIfNeeded();
+  }
+
+  if(thereIsMoreWorkToDo) {
+    requestIdleCallback(someHeavyComputation);
+  }
+});
+
+</script>

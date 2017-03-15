@@ -1,0 +1,45 @@
+<html>
+   <head>
+       <meta charset="utf-8">
+       <style type="text/css">
+     *{
+         margin:0px;
+         padding:0px;
+        }
+    #zhuantou{
+        width:120px;
+        height:60px;
+        background-image:url(1.jpg);
+        position:fixed;
+        left:100px;
+         top:50px;
+      }
+      </style>
+  <body>
+      <div id="zhuantou">
+      </div>
+       <script>
+        var zt=document.querySelector("#zhuantou");
+        var isPressed=false;
+        var offsetX=0;
+        var offsetY=0;
+        zt.onmousedown=function(event){
+                 isPressed=true;
+                 this.style.cursor="move";
+                 offsetX=event.offsetX;
+                offsetY=event.offsetY;
+       };
+       zt.onmouseup=function(){
+              isPressed=false;
+             this.style.cursor="default";
+        };
+       zt.onmousemove=function(event){
+            if(!isPressed){
+                   return;
+              }
+           zt.style.left=(event.clientX-offsetX)+"px";
+          zt.style.top=(event.clientY-offsetX)+"px";
+        };
+  </script>
+ </body>
+</html>

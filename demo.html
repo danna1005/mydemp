@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>js test demo</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        function continueFun(){
+        var total =0,array = new Array(5,7,10,13,16,18);
+        for(var a=0;a<array.length;a++){
+          if(array[a]<10){
+            continue;       //不计算小于10的数据     
+          }          
+          total +=array[a];
+        }
+        console.log("continue用法：数组小于10的累加值为"+total);
+        }
+        continueFun();
+
+        function breakFun(){
+          var sum = 0;
+          for(var i=0;i<100;i++){
+            sum+=i;
+            if(sum>30){
+              break;
+            }
+          }
+          console.log("break用法：0至"+i+"(包括"+i+")直接的自然数的累加和为"+sum);
+        }
+        
+        breakFun();
+
+        var chars = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        function generateMixed(n) {
+             var res = "";
+             for(var i = 0; i < n ; i ++) {
+                 var id = Math.ceil(Math.random()*35);
+                 res += chars[id];
+             }
+             return res;
+        }
+        function GetRandomNum(Min,Max)
+        {   
+            var Range = Max - Min;   
+            var Rand = Math.random();   
+            return(Min + Math.round(Rand * Range));   
+        }    
+      })
+      
+      function result(a,b,c){
+        arguments[1] =c;
+        return b;
+      }
+      console.log(result(1,2,3));
+
+      console.log(str);
+      var str = '理财网';
+      function getCookie(name){
+        var cok = document.cookie.split(',');
+        for(var i=0;i<cok.length;i++){
+          var arr = cok[i].split("=");
+          if(arr[0]==name){
+            return unescape(temp[1]);
+          }
+        }
+      }
+
+      for(i=0, j=0; i<10, j<6; i++, j++){
+
+        k = i + j;
+
+      }
+      alert(k)
+    </script>
+  </body>
+</html>
